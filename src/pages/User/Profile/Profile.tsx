@@ -30,8 +30,7 @@ export default function Profile() {
     formState: { errors },
     handleSubmit,
     setValue,
-    watch,
-    setError
+    watch
   } = useForm<FormData>({
     defaultValues: {
       name: '',

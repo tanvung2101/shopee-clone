@@ -1,8 +1,8 @@
-import type { RegisterOptions, UseFormGetValues } from 'react-hook-form'
+import type { RegisterOptions } from 'react-hook-form'
 import * as yup from 'yup'
 
 type Rules = { [key in 'email' | 'password' | 'confirm_password']?: RegisterOptions }
-export const rules = (getValues?: UseFormGetValues<any>): Rules => ({
+export const rules: Rules = {
   email: {
     required: {
       value: true,
@@ -51,7 +51,7 @@ export const rules = (getValues?: UseFormGetValues<any>): Rules => ({
       message: 'Độ dài từ 6 - 160 kí tự'
     }
   }
-})
+}
 
 function testPriceMinMax(this: yup.TestContext<yup.AnyObject>) {
   const { price_max, price_min } = this.parent as { price_min: string; price_max: string }
