@@ -88,6 +88,10 @@ export default function ProductDetail() {
   }
 
   const buyNow = async () => {
+    if (!isAuthenticated) {
+      toast.warning('Bạn chưa đăng nhập')
+      return
+    }
     const res = await addToCartMutation.mutateAsync({ buy_count: buyCount, product_id: product?._id as string })
     const purchase = res.data.data
     navigate(path.cart, {

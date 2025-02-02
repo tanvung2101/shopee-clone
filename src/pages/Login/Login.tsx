@@ -1,6 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useMutation } from '@tanstack/react-query'
 import { useContext } from 'react'
+import { Helmet } from 'react-helmet'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -56,6 +57,12 @@ export const Login = () => {
   })
   return (
     <div className='bg-orange'>
+      <Helmet>
+        <meta charSet='utf-8' />
+        <title>Đăng nhập</title>
+        <meta name='description' content='đăng nhập vào shopee clone' />
+        <meta property='twitter:image' content={''} />
+      </Helmet>
       <div className='container'>
         <div className='grid grid-cols-1 lg:grid-cols-5 py-12 lg:py-32 lg:pr-10'>
           <div className='lg:col-span-2 lg:col-start-4'>

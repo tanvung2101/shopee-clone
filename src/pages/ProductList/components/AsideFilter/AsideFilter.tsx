@@ -11,7 +11,8 @@ import { NoUndefiendField } from 'src/types/utils.type'
 import RatingStars from '../RatingStars'
 import { omit } from 'lodash'
 import { QueryConfig } from 'src/hooks/useQueryConfig'
-
+import { useTranslation } from 'react-i18next'
+29
 interface Props {
   queryConfig: QueryConfig
   categories: Category[]
@@ -22,6 +23,7 @@ type FormData = NoUndefiendField<Pick<Schema, 'price_min' | 'price_max'>>
 const priceSchema = schema.pick(['price_min', 'price_max'])
 
 export default function AsideFilter({ queryConfig, categories }: Props) {
+  const { t } = useTranslation()
   const { category } = queryConfig
   const {
     control,
@@ -77,7 +79,7 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
             </g>
           </g>
         </svg>
-        Tất cả danh mục
+        {t('all categories')}
       </Link>
       <div className='bg-gray-300 h-[1px] my-4'></div>
       <ul>
@@ -194,3 +196,5 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
     </div>
   )
 }
+
+34506
